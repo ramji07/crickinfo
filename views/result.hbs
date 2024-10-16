@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scraped Data</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scraped Data from {{scrapedData.url}}</h1>
+
+    <h3>Tables:</h3>
+    {{#each scrapedData.tables}}
+        <table>
+            <thead>
+                <tr>
+                    {{#each this.headers}}
+                        <th>{{this}}</th>
+                    {{/each}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#each this.rows}}
+                    <tr>
+                        {{#each this}}
+                            <td>{{this}}</td>
+                        {{/each}}
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{/each}}
+
+    <h3>Dropdown Options:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Value</th>
+                <th>Text</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each scrapedData.dropdownOptions}}
+                <tr>
+                    <td>{{this.value}}</td>
+                    <td>{{this.text}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    <a href="/">Back to Scrape Another URL</a>
+</body>
+</html>

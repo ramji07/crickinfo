@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scraping Result</title>
+</head>
+<body>
+  <h1>Scraping Result</h1>
+  
+  <!-- Display the success message -->
+  {{#if message}}
+    <p>{{message}}</p>
+  {{else}}
+    <p>No message to show.</p>
+  {{/if}}
+  
+  <!-- Provide a download link for the file if filePath is available -->
+  {{#if filePath}}
+    <p>Download the CSV file: <a href="{{filePath}}" download>{{filePath}}</a></p>
+  {{/if}}
+</body>
+</html>
